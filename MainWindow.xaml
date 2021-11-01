@@ -1,0 +1,53 @@
+﻿<Window x:Class="SM4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SM4"
+        mc:Ignorable="d"
+        Title="SM4小工具" Height="450" Width="800">
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+       
+        <StackPanel Grid.Row="1" Grid.Column="1"  VerticalAlignment="Center">
+            <ComboBox Name="cb_type"  Margin="10" >
+                <ComboBoxItem Tag="ecb" Content="ECB"></ComboBoxItem>
+                <ComboBoxItem Tag="cbc" Content="CBC" IsSelected="True"></ComboBoxItem>
+            </ComboBox>
+            <Button x:Name="btn_jiami"  Margin="10" Click="btn_jiami_Click">加密</Button>
+            <Button x:Name="btn_jiemi" Margin="10" Click="btn_jiemi_Click" >解密</Button>
+        </StackPanel>
+        <Grid Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="*"/>
+             
+            </Grid.ColumnDefinitions>
+            <TextBlock VerticalAlignment="Center"   Grid.Row="0" Text="KEY：" />
+            <TextBox Text="D208EA820BAC6ADC8F128B39C37B9D6C" VerticalContentAlignment="Center" x:Name="tb_key"  Grid.Column="1" Height="30"/>
+            <TextBlock VerticalAlignment="Center"  Grid.Row="1" Text="IV："   />
+            <TextBox Text="4AD66902E151F3A82806B7137C67BDBB"  x:Name="tb_iv" VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="1" Height="30" />
+           
+        </Grid>
+        <GroupBox Grid.Row="1" Header="明文" Padding="10" >
+            <TextBox  TextWrapping="Wrap"  x:Name="tb_mingwen"  />
+        </GroupBox>
+        <GroupBox  Header="密文" Padding="10"  Grid.Row="1" Grid.Column="2" >
+            <TextBox   TextWrapping="Wrap" x:Name="tb_miwen"  />
+        </GroupBox>
+
+     
+    </Grid>
+</Window>
